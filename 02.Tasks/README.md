@@ -7,4 +7,48 @@
 
 ## Решение
 
-Рабочий код всех 4 задач расположен в исходном [файле]
+Рабочий код с комментариями к нему для **всех 4 задач** расположен в [исходном файле](https://github.com/allseenn/exceptions/blob/main/02.Tasks/Task02/src/main/java/App.java)
+
+На всякий случай приведу решение для 2 и 3 задач:
+
+#### Задача 2
+
+Ошибка в типе данных у переменной catchedRes1 - необходимо выставить int, т.е. иначе будет возвращаться тип NaN
+```
+try {
+   int d = 0;
+   int catchedRes1 = intArray[8] / d;
+   System.out.println("catchedRes1 = " + catchedRes1);
+} catch (ArithmeticException e) {
+   System.out.println("Catching exception: " + e);
+}
+```
+
+#### Задача 3
+
+1. Throwable вляется суперклассом для всех исключений, после него исполнятся ничего не будет, необходимо его разместить последним
+
+2. В методе printSum() throws FileNotFoundException лишнее, т.к. мы не обращаемся к файлам
+
+```
+public static void main(String[] args) throws Exception {
+   try {
+       int a = 90;
+       int b = 3;
+       System.out.println(a / b);
+       printSum(23, 234);
+       int[] abc = { 1, 2 };
+       abc[3] = 9;
+   } catch (NullPointerException ex) {
+       System.out.println("Указатель не может указывать на null!");
+   } catch (IndexOutOfBoundsException ex) {
+       System.out.println("Массив выходит за пределы своего размера!");
+   } catch (Throwable ex) {
+       System.out.println("Что-то пошло не так...");
+   } 
+}
+public static void printSum(Integer a, Integer b){
+   System.out.println(a + b);
+}
+
+```
