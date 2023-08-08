@@ -74,7 +74,7 @@ public class UserDataParser {
                 } catch (InvalidDataException e) {
                     System.err.println("Ошибка: " + e.getMessage());
                 } catch (IOException e) {
-                    System.err.println("Ошибка при записи в файл:");
+                    System.err.println("Ошибка при записи в файл: ");
                     e.printStackTrace();
                 }
             }
