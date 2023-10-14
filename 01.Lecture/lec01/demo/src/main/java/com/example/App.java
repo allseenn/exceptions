@@ -21,8 +21,7 @@ public class App
 
         // Бросаем собственные исключения в RuntimeException
         div(10, 0);
-    }
-    Array
+    } 
     public static long getFileSize(File file)
     {
         if(!file.exists()){
